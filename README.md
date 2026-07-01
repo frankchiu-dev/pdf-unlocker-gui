@@ -76,6 +76,12 @@ Artifacts 可直接下載，或放到 GitHub Releases。
 python tests\test_pdf_unlocker.py
 ```
 
+## 作者與相關連結
+
+由 [Frank Chiu](https://frankchiu.io) 製作。
+
+更多工具、文章與專案筆記可參考 [frankchiu.io](https://frankchiu.io)。
+
 ## 授權
 
 本專案原始碼使用 MIT License。第三方套件授權請見 `THIRD_PARTY_NOTICES.md`。
