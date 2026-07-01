@@ -1,6 +1,6 @@
 # PDF 解鎖工具
 
-一個 Windows 桌面小工具，用來批次移除自己有權限 PDF 的開啟密碼或權限限制，並另存成不加密的新 PDF。
+一個 Windows／macOS 桌面小工具，用來批次移除自己有權限 PDF 的開啟密碼或權限限制，並另存成不加密的新 PDF。
 
 ## 功能
 
@@ -9,7 +9,7 @@
 - 支援權限限制 PDF，開啟不需密碼但禁止列印、複製或編輯的檔案通常可直接處理。
 - 支援需要開啟密碼的 PDF，但必須輸入正確密碼。
 - 原始檔不會被修改，輸出預設放在 `unlocked` 資料夾。
-- 內建 Windows GUI，並可打包成單一 `.exe`。
+- 內建桌面 GUI，Windows 可打包成 `.exe`，macOS 可打包成 `.app`。
 
 ## 重要界線
 
@@ -45,6 +45,30 @@ python pdf_unlocker.py "D:\檔案"
 ```text
 dist\PDFUnlocker.exe
 ```
+
+## 建置 macOS app
+
+macOS 版本需要在 Mac 或 GitHub Actions 的 macOS runner 上建置。
+
+```bash
+bash scripts/build_macos.sh
+```
+
+完成後會產生：
+
+```text
+dist/PDFUnlocker.app
+dist/PDFUnlocker-macOS.zip
+```
+
+## GitHub Actions
+
+專案內建 `.github/workflows/build.yml`。推上 GitHub 後，Actions 會自動：
+
+- 在 Windows runner 跑測試並建置 `PDFUnlocker.exe`。
+- 在 macOS runner 跑測試並建置 `PDFUnlocker.app`，再壓成 `PDFUnlocker-macOS.zip`。
+
+Artifacts 可直接下載，或放到 GitHub Releases。
 
 ## 測試
 
